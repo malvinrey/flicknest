@@ -20,10 +20,11 @@ class _SignInScreenState extends State<SignInScreen> {
     String password = passwordController.text;
 
     // Cari pengguna yang sesuai
-    final Map<String, String>? user = users.cast<Map<String, String>?>().firstWhere(
-      (user) => user!['email'] == email && user['password'] == password,
-      orElse: () => null,
-    );
+    final Map<String, String>? user =
+        users.cast<Map<String, String>?>().firstWhere(
+              (user) => user!['email'] == email && user['password'] == password,
+              orElse: () => null,
+            );
 
     if (user != null) {
       // Login berhasil
@@ -40,6 +41,18 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          splashColor: Colors.grey[700],
+          hoverColor: Colors.grey[800],
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         title: Text('Sign In'),
         backgroundColor: Colors.black, // Warna latar belakang hitam
         titleTextStyle: TextStyle(
@@ -57,7 +70,8 @@ class _SignInScreenState extends State<SignInScreen> {
             Column(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8), // Rounded corners for logo
+                  borderRadius:
+                      BorderRadius.circular(8), // Rounded corners for logo
                   child: Image.asset(
                     'assets/images/logo.png', // Ganti dengan path logo Anda
                     height: 100, // Atur tinggi logo
@@ -73,10 +87,11 @@ class _SignInScreenState extends State<SignInScreen> {
                     fontWeight: FontWeight.bold, // Menebalkan nama aplikasi
                   ),
                 ),
-                SizedBox(height: 32), // Jarak antara nama aplikasi dan form login
+                SizedBox(
+                    height: 32), // Jarak antara nama aplikasi dan form login
               ],
             ),
-            
+
             // Form Login
             TextField(
               controller: emailController,
@@ -100,6 +115,14 @@ class _SignInScreenState extends State<SignInScreen> {
               onPressed: signIn,
               child: Text('Sign In'),
             ),
+            SizedBox(height: 5),
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/forgot-password');
+              },
+              child: Text('Forgot Password?'),
+            ),
+
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/register');

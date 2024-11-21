@@ -4,7 +4,8 @@ import 'pages/login_page.dart';
 import 'pages/register_page.dart';
 import 'pages/home_page.dart';
 import 'pages/sign_in_screen.dart';
-import 'pages/forgot_password.dart';
+import 'pages/reset_password.dart';
+import 'pages/lupa_password.dart';
 
 void main() {
   // Aktifkan PathUrlStrategy untuk URL tanpa hash
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/sign-in': (context) => SignInScreen(),
-        '/forgot-password': (context) => ForgotPasswordPage(),
+        '/reset-password': (context) => ResetPasswordPage(),
+        '/forgot-password': (context) => LupaPasswordPage(),
       },
     );
   }
