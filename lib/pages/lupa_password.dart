@@ -7,19 +7,31 @@ class LupaPasswordPage extends StatefulWidget {
 
 class _LupaPasswordPageState extends State<LupaPasswordPage> {
   final _emailController = TextEditingController();
-  final _allowedEmail = "rendy@jogja.co.id"; // Email spesifik yang diizinkan
+  final _allowedEmail = "rendy@jogja.co.id"; 
   String? _errorMessage;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          splashColor: Colors.grey[700],
+          hoverColor: Colors.grey[800],
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+            Navigator.pop(context); 
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         title: Text('Forgot Password'),
-        backgroundColor: Colors.black, // Warna latar belakang hitam
+        backgroundColor: Colors.black, 
         titleTextStyle: TextStyle(
-          color: Colors.white, // Warna teks putih
-          fontSize: 20, // Ukuran font teks
-          fontWeight: FontWeight.bold, // Menebalkan teks
+          color: Colors.white, 
+          fontSize: 20, 
+          fontWeight: FontWeight.bold, 
         ),
       ),
       body: Padding(
@@ -38,24 +50,21 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
               decoration: InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
-                errorText: _errorMessage, // Tampilkan pesan error jika ada
+                errorText: _errorMessage, 
               ),
               keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Validasi email
                 if (_emailController.text == _allowedEmail) {
-                  // Tampilkan pesan sukses
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Password reset link has been sent to your email."),
                     ),
                   );
-                  Navigator.pushReplacementNamed(context, '/login');
+                  Navigator.pushReplacementNamed(context, '/sign-in');
                 } else {
-                  // Tampilkan error jika email tidak cocok
                   setState(() {
                     _errorMessage = "Email is not valid or not registered.";
                   });
@@ -65,7 +74,6 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
             ),
             TextButton(
               onPressed: () {
-                // Kembali ke halaman login
                 Navigator.pushReplacementNamed(context, '/sign-in');
               },
               child: Text('Back to Login'),

@@ -40,6 +40,18 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          splashColor: Colors.grey[700],
+          hoverColor: Colors.grey[800],
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+            Navigator.pop(context); 
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         title: Text('Sign In'),
         backgroundColor: Colors.black, // Warna latar belakang hitam
         titleTextStyle: TextStyle(
@@ -103,7 +115,6 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 5),
             TextButton(
               onPressed: () {
-                // Pindah ke halaman lupa password
                 Navigator.pushReplacementNamed(context, '/forgot-password');
               },
               child: Text('Forgot Password?'),
