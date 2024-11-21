@@ -44,7 +44,7 @@ class RegisterPage extends StatelessWidget {
             TextButton(
               onPressed: () {
                 // Pindah ke halaman login
-                Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pushReplacementNamed(context, '/sign-in');
               },
               child: Text('Already have an account? Login'),
             ),
