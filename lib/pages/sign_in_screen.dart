@@ -100,6 +100,15 @@ class _SignInScreenState extends State<SignInScreen> {
               onPressed: signIn,
               child: Text('Sign In'),
             ),
+            SizedBox(height: 5),
+            TextButton(
+              onPressed: () {
+                // Pindah ke halaman lupa password
+                Navigator.pushReplacementNamed(context, '/forgot-password');
+              },
+              child: Text('Forgot Password?'),
+            ),
+            
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/register');

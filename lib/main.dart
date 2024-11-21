@@ -3,6 +3,7 @@ import 'pages/login_page.dart';
 import 'pages/register_page.dart';
 import 'pages/home_page.dart';
 import 'pages/sign_in_screen.dart';
+import 'pages/lupa_password.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/sign-in': (context) => SignInScreen(),
+        '/forgot-password': (context) => LupaPasswordPage(),
 
       },
     );
