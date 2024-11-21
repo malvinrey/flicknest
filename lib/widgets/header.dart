@@ -98,28 +98,36 @@ class _HeaderState extends State<Header> {
                 ),
 
           // Right Section: Sign In and Add Icon
-          Expanded(
-            flex: 3, // Allocate space for Sign In and Add Icon
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16), // Equal padding to the right
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Sign In",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                  ),
-                  SizedBox(width: 8),
-                  IconButton(
-                    icon: Icon(Icons.add_circle, color: Colors.yellow[700], size: 24),
-                    onPressed: () {
-                      _showAddOptionsDialog(context);
-                    },
-                  ),
-                ],
-              ),
-            ),
+          // Right Section: Sign In and Add Icon
+Expanded(
+  flex: 3, // Allocate space for Sign In and Add Icon
+  child: Padding(
+    padding: const EdgeInsets.only(right: 16), // Equal padding to the right
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        TextButton(
+          onPressed: () {
+            // Navigasi ke halaman Sign In
+            Navigator.pushNamed(context, '/sign-in');
+          },
+          child: Text(
+            "Sign In",
+            style: TextStyle(color: Colors.white, fontSize: 12),
           ),
+        ),
+        SizedBox(width: 8),
+        IconButton(
+          icon: Icon(Icons.add_circle, color: Colors.yellow[700], size: 24),
+          onPressed: () {
+            _showAddOptionsDialog(context);
+          },
+        ),
+      ],
+    ),
+  ),
+),
+
         ],
       ),
     );
