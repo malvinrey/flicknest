@@ -1,18 +1,35 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
+android {
+    compileSdkVersion 33 // Ensure this is compatible with Flutter dependencies
+
+    defaultConfig {
+        applicationId "com.example.flicknext" // Your app's package name
+        minSdkVersion 20 // Set minSdkVersion to at least 20 for WebView
+        targetSdkVersion 33 // Use the latest target SDK version
+        versionCode 1
+        versionName "1.0"
+
+        // Enable multidex for large projects
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Ensure proper configurations for Java/Kotlin
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1" // Required if multiDexEnabled is true
 }

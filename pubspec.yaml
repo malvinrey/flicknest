@@ -11,8 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.5.0
+  youtube_player_flutter: ^9.1.1
+  http: ^1.2.2
+  #API Key TMDb : 43b293104d588c0b1ebaf65d26e701df
+  cached_network_image: ^3.2.0
   flutter_web_plugins: # Tambahkan ini
     sdk: flutter
+  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:

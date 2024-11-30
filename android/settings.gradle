@@ -10,9 +10,10 @@ pluginManagement {
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
 
     repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
+        google() // Google's Maven repository
+        mavenCentral() // Maven Central repository
+        gradlePluginPortal() // Gradle Plugin Portal
+        maven { url 'https://jitpack.io' } // Optional: JitPack for additional libraries
     }
 }
 
@@ -22,4 +23,5 @@ plugins {
     id "org.jetbrains.kotlin.android" version "1.8.22" apply false
 }
 
+// Include the main application module
 include ":app"
